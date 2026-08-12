@@ -1,0 +1,169 @@
+;; The EMF source catalog, as Kotoba.
+;;
+;; GENERATED from data/datascript-tx.edn, which src/association/facts.cljc
+;; reads as data. Both are the same catalog; this one reaches the Kotoba
+;; oracle, wasm and both native ISAs, which the .cljc cannot.
+;;
+;; `:topic` is a SET in the source. A set has no order and `topic` is
+;; indexed by position, so the generator uses the order the data file
+;; writes. `by-topic-id` answers by name and is unaffected.
+;;
+;; Parity: test/association_facts_kotoba_parity_test.clj compares every
+;; field of every entry against the .cljc, so this file cannot drift from
+;; the data without the suite saying so.
+
+(ns association-facts
+  (:export [main association-covered? entry-count entry-field topic-count
+            topic by-topic-count by-topic-id coverage-note]))
+
+(defn association-covered? [a :string] :bool (string=? a "emf"))
+
+(defn entry-count [a :string] :i64 (if (association-covered? a) 7 0))
+
+(defn valid-entry? [a :string i :i64] :bool
+  (if (association-covered? a) (if (< i 0) false (< i 7)) false))
+
+(defn entry-field [a :string i :i64 f :string] [:option :string]
+  (if (valid-entry? a i)
+    (if (= i 0)
+      (cond
+        (string=? f "id") (option-some-of [:option :string] "emf.identity-and-mandate")
+        (string=? f "title") (option-some-of [:option :string] "About EMF — mandate of the European Mortgage Federation")
+        (string=? f "association") (option-some-of [:option :string] "emf")
+        (string=? f "isic") (option-some-of [:option :string] "6492")
+        (string=? f "country") (option-some-of [:option :string] "EU")
+        (string=? f "kind") (option-some-of [:option :string] "association-mandate")
+        (string=? f "url") (option-some-of [:option :string] "https://hypo.org/about-emf")
+        (string=? f "url-provenance") (option-some-of [:option :string] "official-association-site")
+        (string=? f "established-date") (option-some-of [:option :string] "1967")
+        (string=? f "retrieved-at") (option-some-of [:option :string] "2026-08-01")
+        :else (option-none-of [:option :string])
+        )
+      (if (= i 1)
+        (cond
+          (string=? f "id") (option-some-of [:option :string] "emf.full-membership-eligibility")
+          (string=? f "title") (option-some-of [:option :string] "EMF full membership eligibility rule")
+          (string=? f "association") (option-some-of [:option :string] "emf")
+          (string=? f "isic") (option-some-of [:option :string] "6492")
+          (string=? f "country") (option-some-of [:option :string] "EU")
+          (string=? f "kind") (option-some-of [:option :string] "membership-rule")
+          (string=? f "url") (option-some-of [:option :string] "https://hypo.org/emf")
+          (string=? f "url-provenance") (option-some-of [:option :string] "official-association-site")
+          (string=? f "retrieved-at") (option-some-of [:option :string] "2026-08-01")
+          :else (option-none-of [:option :string])
+          )
+        (if (= i 2)
+          (cond
+            (string=? f "id") (option-some-of [:option :string] "emf.hypostat")
+            (string=? f "title") (option-some-of [:option :string] "EMF Hypostat — flagship statistical publication on European mortgage markets")
+            (string=? f "association") (option-some-of [:option :string] "emf")
+            (string=? f "isic") (option-some-of [:option :string] "6492")
+            (string=? f "country") (option-some-of [:option :string] "EU")
+            (string=? f "kind") (option-some-of [:option :string] "statistical-publication")
+            (string=? f "url") (option-some-of [:option :string] "https://hypo.org/emf-hypostat")
+            (string=? f "url-provenance") (option-some-of [:option :string] "official-association-site-index")
+            (string=? f "retrieved-at") (option-some-of [:option :string] "2026-08-01")
+            :else (option-none-of [:option :string])
+            )
+          (if (= i 3)
+            (cond
+              (string=? f "id") (option-some-of [:option :string] "emf.quarterly-review")
+              (string=? f "title") (option-some-of [:option :string] "EMF Quarterly Review of European Mortgage Markets")
+              (string=? f "association") (option-some-of [:option :string] "emf")
+              (string=? f "isic") (option-some-of [:option :string] "6492")
+              (string=? f "country") (option-some-of [:option :string] "EU")
+              (string=? f "kind") (option-some-of [:option :string] "market-review")
+              (string=? f "url") (option-some-of [:option :string] "https://hypo.org/quarterly-review")
+              (string=? f "url-provenance") (option-some-of [:option :string] "official-association-site-index")
+              (string=? f "retrieved-at") (option-some-of [:option :string] "2026-08-01")
+              :else (option-none-of [:option :string])
+              )
+            (if (= i 4)
+              (cond
+                (string=? f "id") (option-some-of [:option :string] "emf.position-papers")
+                (string=? f "title") (option-some-of [:option :string] "EMF-ECBC Position Papers")
+                (string=? f "association") (option-some-of [:option :string] "emf")
+                (string=? f "isic") (option-some-of [:option :string] "6492")
+                (string=? f "country") (option-some-of [:option :string] "EU")
+                (string=? f "kind") (option-some-of [:option :string] "position-paper-series")
+                (string=? f "url") (option-some-of [:option :string] "https://hypo.org/position-papers")
+                (string=? f "url-provenance") (option-some-of [:option :string] "official-association-site-index")
+                (string=? f "retrieved-at") (option-some-of [:option :string] "2026-08-01")
+                :else (option-none-of [:option :string])
+                )
+              (if (= i 5)
+                (cond
+                  (string=? f "id") (option-some-of [:option :string] "ecbc.fact-book")
+                  (string=? f "title") (option-some-of [:option :string] "ECBC Fact Book & Statistics (European Covered Bond Council)")
+                  (string=? f "association") (option-some-of [:option :string] "emf")
+                  (string=? f "isic") (option-some-of [:option :string] "6492")
+                  (string=? f "country") (option-some-of [:option :string] "EU")
+                  (string=? f "kind") (option-some-of [:option :string] "statistical-publication")
+                  (string=? f "url") (option-some-of [:option :string] "https://hypo.org/ecbc-fact-book")
+                  (string=? f "url-provenance") (option-some-of [:option :string] "official-association-site-index")
+                  (string=? f "retrieved-at") (option-some-of [:option :string] "2026-08-01")
+                  :else (option-none-of [:option :string])
+                  )
+                (cond
+                  (string=? f "id") (option-some-of [:option :string] "ecbc.global-concept-note-third-country-equivalence")
+                  (string=? f "title") (option-some-of [:option :string] "ECBC Global Concept Note on Third Country Equivalence for Covered Bonds")
+                  (string=? f "association") (option-some-of [:option :string] "emf")
+                  (string=? f "isic") (option-some-of [:option :string] "6492")
+                  (string=? f "country") (option-some-of [:option :string] "EU")
+                  (string=? f "kind") (option-some-of [:option :string] "industry-concept-note")
+                  (string=? f "url") (option-some-of [:option :string] "https://hypo.org/ecbc-global-concept-note-third-country-equivalence-covered-bonds")
+                  (string=? f "url-provenance") (option-some-of [:option :string] "official-association-site-index")
+                  (string=? f "retrieved-at") (option-some-of [:option :string] "2026-08-01")
+                  :else (option-none-of [:option :string])
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    (option-none-of [:option :string])))
+
+(defn topic-count [a :string i :i64] :i64
+  (if (valid-entry? a i)
+    (if (= i 0) 2 (if (= i 1) 2 (if (= i 2) 2 (if (= i 3) 2 (if (= i 4) 2 (if (= i 5) 2 (if (= i 6) 3 0)))))))
+    0))
+
+(defn topic [a :string i :i64 t :i64] [:option :string]
+  (if (valid-entry? a i)
+    (if (= i 0)
+      (if (= t 0) (option-some-of [:option :string] "governance") (if (= t 1) (option-some-of [:option :string] "mortgage-lending") (option-none-of [:option :string])))
+    (if (= i 1)
+      (if (= t 0) (option-some-of [:option :string] "governance") (if (= t 1) (option-some-of [:option :string] "membership") (option-none-of [:option :string])))
+    (if (= i 2)
+      (if (= t 0) (option-some-of [:option :string] "market-statistics") (if (= t 1) (option-some-of [:option :string] "mortgage-lending") (option-none-of [:option :string])))
+    (if (= i 3)
+      (if (= t 0) (option-some-of [:option :string] "market-statistics") (if (= t 1) (option-some-of [:option :string] "mortgage-lending") (option-none-of [:option :string])))
+    (if (= i 4)
+      (if (= t 0) (option-some-of [:option :string] "advocacy") (if (= t 1) (option-some-of [:option :string] "regulation") (option-none-of [:option :string])))
+    (if (= i 5)
+      (if (= t 0) (option-some-of [:option :string] "covered-bonds") (if (= t 1) (option-some-of [:option :string] "funding") (option-none-of [:option :string])))
+    (if (= i 6)
+      (if (= t 0) (option-some-of [:option :string] "covered-bonds") (if (= t 1) (option-some-of [:option :string] "regulation") (if (= t 2) (option-some-of [:option :string] "equivalence") (option-none-of [:option :string]))))
+    (option-none-of [:option :string]))))))))
+    (option-none-of [:option :string])))
+
+(defn by-topic-count [a :string candidate :string] :i64
+  (if (association-covered? a)
+    (if (string=? candidate "governance") 2 (if (string=? candidate "mortgage-lending") 3 (if (string=? candidate "membership") 1 (if (string=? candidate "market-statistics") 2 (if (string=? candidate "advocacy") 1 (if (string=? candidate "regulation") 2 (if (string=? candidate "covered-bonds") 2 (if (string=? candidate "funding") 1 (if (string=? candidate "equivalence") 1 0)))))))))
+    0))
+
+(defn by-topic-id [a :string candidate :string i :i64] [:option :string]
+  (if (association-covered? a)
+    (if (= i 0)
+      (if (string=? candidate "governance") (entry-field a 0 "id") (if (string=? candidate "mortgage-lending") (entry-field a 0 "id") (if (string=? candidate "membership") (entry-field a 1 "id") (if (string=? candidate "market-statistics") (entry-field a 2 "id") (if (string=? candidate "advocacy") (entry-field a 4 "id") (if (string=? candidate "regulation") (entry-field a 4 "id") (if (string=? candidate "covered-bonds") (entry-field a 5 "id") (if (string=? candidate "funding") (entry-field a 5 "id") (if (string=? candidate "equivalence") (entry-field a 6 "id") (option-none-of [:option :string]))))))))))
+      (option-none-of [:option :string]))
+    (option-none-of [:option :string])))
+
+(defn coverage-note [a :string] [:option :string]
+  (if (association-covered? a)
+    (option-some-of [:option :string]
+      "cloud-itonami-assoc-6492-eu-emf Wave 0 (ADR-2607141700): 7 emf entries seeded with an official citation. Extend the sovereign catalog; never fabricate a rule id/url.")
+    (option-none-of [:option :string])))
+
+(defn main [] :i64 0)
