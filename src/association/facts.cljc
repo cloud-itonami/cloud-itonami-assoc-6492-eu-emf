@@ -25,7 +25,7 @@
                                         but that target was NOT itself fetched
     :official-association-site-file   — the file URL resolved and downloaded,
                                         but its text was NOT extracted"
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def association "emf")
 

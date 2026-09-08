@@ -3,7 +3,7 @@
   the catalog says they say — only a fetch can do that. They check that the
   catalog cannot present a located link as a read source, and cannot hide the
   boundary of what it does not contain."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [association.facts :as facts]
             #?(:clj [clojure.test :refer [deftest is testing]]
                :cljs [cljs.test :refer [deftest is testing]])))
