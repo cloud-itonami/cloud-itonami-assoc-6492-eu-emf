@@ -6,7 +6,7 @@
 ;;   nbb --classpath src scripts/emit_tx.cljs
 
 (ns emit-tx
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [association.facts :as facts]
             ["fs" :as fs]))
 
