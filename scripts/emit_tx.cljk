@@ -1,9 +1,9 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; scripts/emit_tx.cljk — project `association.facts/catalog` into DataScript
 ;; tx-data at data/datascript-tx.edn. GENERATED FILE: never hand-edit
 ;; data/datascript-tx.edn, edit src/association/facts.cljk and re-run:
 ;;
-;;   nbb --classpath src scripts/emit_tx.cljk
+;;   kbb --backend sci --classpath src scripts/emit_tx.cljk
 
 (ns emit-tx
   (:require [kotoba.lang.text :as str]
@@ -13,7 +13,7 @@
 (def header
   (str ";; data/datascript-tx.edn — GENERATED from src/association/facts.cljk by\n"
        ";; scripts/emit_tx.cljk. Do not hand-edit: edit the catalog and re-run\n"
-       ";;   nbb --classpath src scripts/emit_tx.cljk\n"
+       ";;   kbb --backend sci --classpath src scripts/emit_tx.cljk\n"
        ";;\n"
        ";; " (count facts/catalog) " located source(s), of which "
        (count (facts/quoted)) " were fetched and quoted. The remainder are\n"

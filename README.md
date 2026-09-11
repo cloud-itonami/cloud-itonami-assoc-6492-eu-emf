@@ -75,8 +75,8 @@ run-tests.cljk               nbb test entry point
 ```
 
 ```bash
-nbb --classpath src:test run-tests.cljk   # 7 tests, 69 assertions
-nbb --classpath src scripts/emit_tx.cljk  # regenerate data/datascript-tx.edn
+kbb --backend sci --classpath src:test run-tests.cljk   # 7 tests, 69 assertions
+kbb --backend sci --classpath src scripts/emit_tx.cljk  # regenerate data/datascript-tx.edn
 ```
 
 ## Licence
