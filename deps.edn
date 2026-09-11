@@ -1,8 +1,8 @@
 ;; Portable `.cljc` catalog. Tests and the tx-data generator run under nbb
 ;; (script-host policy: nbb only, ADR-2607173000):
 ;;
-;;   nbb --classpath src:test run-tests.cljs
-;;   nbb --classpath src scripts/emit_tx.cljs
+;;   nbb --classpath src:test run-tests.cljk
+;;   nbb --classpath src scripts/emit_tx.cljk
 ;;
 ;; This deps.edn exists so the same `.cljc` loads on a JVM classpath for
 ;; linting and for consumers embedding the catalog in a Datomic/DataScript
@@ -19,7 +19,7 @@
   ;; `src/association_facts.kotoba` and runs it against the `.cljc` that reads
   ;; the same `data/datascript-tx.edn`, and the compiler is reached from a JVM
   ;; classpath here as it is in all 41 sibling repositories. The nbb entry
-  ;; (`run-tests.cljs`) is unchanged and still runs the catalog's own tests.
+  ;; (`run-tests.cljk`) is unchanged and still runs the catalog's own tests.
   :test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner
                       {:git/tag "v0.5.1" :git/sha "dfb30dd6605cb6c0efc275e1df1736f6e90d4d73"}

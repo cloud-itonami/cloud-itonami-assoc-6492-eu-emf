@@ -1,6 +1,6 @@
 ;; The EMF source catalog, as Kotoba.
 ;;
-;; GENERATED from data/datascript-tx.edn, which src/association/facts.cljc
+;; GENERATED from data/datascript-tx.edn, which src/association/facts.cljk
 ;; reads as data. Both are the same catalog; this one reaches the Kotoba
 ;; oracle, wasm and both native ISAs, which the .cljc cannot.
 ;;
@@ -8,7 +8,7 @@
 ;; indexed by position, so the generator uses the order the data file
 ;; writes. `by-topic-id` answers by name and is unaffected.
 ;;
-;; Parity: test/association_facts_kotoba_parity_test.clj compares every
+;; Parity: test/association_facts_kotoba_parity_test.cljk compares every
 ;; field of every entry against the .cljc, so this file cannot drift from
 ;; the data without the suite saying so.
 

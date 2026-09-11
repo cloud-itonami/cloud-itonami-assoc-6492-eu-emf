@@ -65,18 +65,18 @@ was not fetched, so **no member association is named in this catalog**.
 ## Layout
 
 ```
-src/association/facts.cljc   catalog + not-catalogued + query fns (canonical)
+src/association/facts.cljk   catalog + not-catalogued + query fns (canonical)
 organization.edn             real-world identity (no personal names)
 schema/association-rule.edn  DataScript schema (sibling shape + 4 evidence attrs)
 data/datascript-tx.edn       GENERATED projection — never hand-edit
-scripts/emit_tx.cljs         regenerates data/ from src/ (nbb)
-test/association/facts_test.cljc  honesty invariants
-run-tests.cljs               nbb test entry point
+scripts/emit_tx.cljk         regenerates data/ from src/ (nbb)
+test/association/facts_test.cljk  honesty invariants
+run-tests.cljk               nbb test entry point
 ```
 
 ```bash
-nbb --classpath src:test run-tests.cljs   # 7 tests, 69 assertions
-nbb --classpath src scripts/emit_tx.cljs  # regenerate data/datascript-tx.edn
+nbb --classpath src:test run-tests.cljk   # 7 tests, 69 assertions
+nbb --classpath src scripts/emit_tx.cljk  # regenerate data/datascript-tx.edn
 ```
 
 ## Licence
