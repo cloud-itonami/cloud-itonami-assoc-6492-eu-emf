@@ -1,6 +1,6 @@
 ;; data/datascript-tx.edn — GENERATED from src/association/facts.cljk by
 ;; scripts/emit_tx.cljk. Do not hand-edit: edit the catalog and re-run
-;;   nbb --classpath src scripts/emit_tx.cljk
+;;   kbb --backend sci --classpath src scripts/emit_tx.cljk
 ;;
 ;; 7 located source(s), of which 2 were fetched and quoted. The remainder are
 ;; links listed on a fetched page but not themselves fetched — see
