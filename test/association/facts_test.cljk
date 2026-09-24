@@ -5,7 +5,7 @@
   boundary of what it does not contain."
   (:require [kotoba.lang.text :as str]
             [association.facts :as facts]
-            #?(:clj [clojure.test :refer [deftest is testing]]
+            #?(:clj [kotoba.test :refer [deftest is testing]]
                :cljs [cljs.test :refer [deftest is testing]])))
 
 (def valid-provenance

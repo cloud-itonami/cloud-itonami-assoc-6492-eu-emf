@@ -16,7 +16,7 @@
   `:association-rule/topic` is a SET. A set has no order and `topic` is indexed
   by position, so the port uses the order the data file writes; the assertion
   compares against that written order rather than against `seq` on a set."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [association.facts :as facts]
             [kotoba.compiler.core :as compiler]
             [kotoba.kir :as ir]))
